@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AR Business Card</title>
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js/aframe/build/aframe-ar.min.js"></script>
+  </head>
+  <body>
+    <div class="loader">Loading AR experience...</div>
+    <div id="tap-instructions">Tap icons to open links</div>
+
+    <a-scene embedded arjs>
+      <a-assets>
+        <a-asset-item id="cardModel" src="card.glb"></a-asset-item>
+      </a-assets>
+
+      <a-marker preset="hiro">
+        <a-entity gltf-model="#cardModel" scale="1 1 1" position="0 0 0" rotation="0 0 0">
+        </a-entity>
+
+        <!-- Example clickable box (position it above your icons in model) -->
+        <a-box position="0.5 0.1 0.2" depth="0.01" height="0.1" width="0.1" 
+               opacity="0" color="#FFFFFF" 
+               onclick="window.open('https://instagram.com/yourprofile', '_blank');">
+        </a-box>
+      </a-marker>
+
+      <a-entity camera></a-entity>
+    </a-scene>
+  </body>
+  <html lang="en">
+
+</html>
