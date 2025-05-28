@@ -2,26 +2,30 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AR Business Card</title>
-    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
-   <!-- CSS -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mind-ar@1.1.7/dist/mindar-image-aframe.prod.css" />
 
-<!-- JS -->
-<script src="https://cdn.jsdelivr.net/npm/mind-ar@1.1.7/dist/mindar-image-aframe.prod.js"></script>
+    <!-- A-Frame -->
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+
+    <!-- MindAR (CSS + JS) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mind-ar@1.1.7/dist/mindar-image-aframe.prod.css" />
+    <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.1.7/dist/mindar-image-aframe.prod.js"></script>
 
     <style>
-      body, html {
+      html, body {
         margin: 0;
         padding: 0;
         overflow: hidden;
+        height: 100%;
+        width: 100%;
       }
     </style>
   </head>
   <body>
     <mindar-image-ar
       imageTargetSrc="https://blxck30.github.io/ar-business-card/card.mind"
-      autoStart
+      autoStart="true"
       uiScanning="no"
       uiLoading="yes"
     >
@@ -29,12 +33,11 @@
         mindar-image
         embedded
         color-space="sRGB"
-        renderer="colorManagement: true, physicallyCorrectLights"
+        renderer="colorManagement: true, physicallyCorrectLights: true"
         vr-mode-ui="enabled: false"
         device-orientation-permission-ui="enabled: true"
       >
         <a-assets>
-          <!-- Load your GLB model -->
           <a-asset-item id="cardModel" src="https://blxck30.github.io/ar-business-card/card.glb"></a-asset-item>
         </a-assets>
 
