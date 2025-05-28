@@ -2,38 +2,33 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AR Business Card</title>
 
-    <!-- A-Frame -->
+    <!-- A-Frame and MindAR -->
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
-
-    <!-- MindAR (CSS + JS) -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mind-ar@1.1.7/dist/mindar-image-aframe.prod.css" />
     <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.1.7/dist/mindar-image-aframe.prod.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mind-ar@1.1.7/dist/mindar-image-aframe.prod.css" />
 
     <style>
-      html, body {
+      body, html {
         margin: 0;
         padding: 0;
         overflow: hidden;
-        height: 100%;
-        width: 100%;
       }
     </style>
   </head>
   <body>
     <mindar-image-ar
       imageTargetSrc="https://blxck30.github.io/ar-business-card/card.mind"
-      autoStart="true"
-      uiScanning="no"
+      autoStart
+      uiScanning="yes"
       uiLoading="yes"
     >
       <a-scene
         mindar-image
         embedded
         color-space="sRGB"
-        renderer="colorManagement: true, physicallyCorrectLights: true"
+        renderer="colorManagement: true, physicallyCorrectLights"
         vr-mode-ui="enabled: false"
         device-orientation-permission-ui="enabled: true"
       >
@@ -46,8 +41,8 @@
         <a-entity mindar-image-target="targetIndex: 0">
           <a-gltf-model
             src="#cardModel"
-            position="0 0 0"
-            scale="0.5 0.5 0.5"
+            position="0 -0.5 0"
+            scale="1 1 1"
             rotation="0 0 0"
           ></a-gltf-model>
         </a-entity>
